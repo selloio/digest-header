@@ -31,8 +31,11 @@ function digestAuthHeader(method, uri, wwwAuthenticate, userpass) {
     }
   }
 
-  if (!opts.realm || !opts.nonce) {
+  if (!opts.nonce) {
     return '';
+  }
+  if (!opts.realm) {
+    opts.realm = '';
   }
 
   var qop = opts.qop || '';
